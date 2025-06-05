@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio ADM | Miguel</title>
+    <title>Portfólio ADM Futurista | Miguel</title> 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;600&family=Rajdhani:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -19,75 +16,75 @@
             --dark-space: #0a0a1a;
             --neon-red: #ff0033,
         }
-
+        
         body {
             font-family: 'Exo 2', sans-serif;
             background-color: var(--dark-space);
             color: #e0e0ff;
             scroll-behavior: smooth;
         }
-
+        
         .hud-text {
             font-family: 'Rajdhani', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
+        
         .tech-text {
             font-family: 'Orbitron', sans-serif;
         }
-
+        
         .neon-border {
             border: 1px solid var(--neon-blue);
             box-shadow: 0 0 10px var(--neon-blue), inset 0 0 5px var(--neon-blue);
         }
-
+        
         .orange-border {
             border: 1px solid var(--electric-orange);
             box-shadow: 0 0 10px var(--electric-orange), inset 0 0 5px var(--electric-orange);
         }
-
+        
         .neon-text {
             text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
         }
-
+        
         .orange-glow {
             text-shadow: 0 0 5px var(--electric-orange), 0 0 10px var(--electric-orange);
         }
-
+        
         .green-glow {
             text-shadow: 0 0 5px var(--lime-green), 0 0 10px var(--lime-green);
         }
-
+        
         .purple-glow {
             text-shadow: 0 0 5px var(--cyber-purple), 0 0 10px var(--cyber-purple);
         }
-
+        
         .circuit-bg {
-            background-image:
+            background-image: 
                 linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)),
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%2300f5ff" stroke-width="0.3" stroke-dasharray="3,3"/></svg>');
         }
-
+        
         .dashboard-bg {
-            background-image:
+            background-image: 
                 linear-gradient(rgba(10, 10, 26, 0.95), rgba(10, 10, 26, 0.95)),
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="2" fill="%23bc13fe" opacity="0.3"/><circle cx="10" cy="10" r="1" fill="%2300f5ff" opacity="0.5"/><circle cx="50" cy="10" r="1" fill="%23ff5e00" opacity="0.5"/><circle cx="10" cy="50" r="1" fill="%23a5ff16" opacity="0.5"/><circle cx="50" cy="50" r="1" fill="%2300f5ff" opacity="0.5"/></svg>');
         }
-
+        
         .card-hover {
             transition: all 0.3s ease;
         }
-
+        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(0, 245, 255, 0.3);
         }
-
+        
         .hud-element {
             position: relative;
         }
-
+        
         .hud-element::before {
             content: "";
             position: absolute;
@@ -100,49 +97,33 @@
             border-radius: inherit;
             opacity: 0.5;
         }
-
+        
         @keyframes pulse {
-            0% {
-                opacity: 0.6;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.6;
-            }
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
         }
-
+        
         .pulse {
             animation: pulse 2s infinite;
         }
-
+        
         @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-
+        
         .float {
             animation: float 6s ease-in-out infinite;
         }
-
+        
         .skill-bar {
             height: 6px;
             background: linear-gradient(90deg, var(--neon-blue), var(--cyber-purple));
             border-radius: 3px;
         }
-
+        
         .progress-dot {
             width: 12px;
             height: 12px;
@@ -172,23 +153,17 @@
         }
     </script>
 </head>
-
 <body class="dashboard-bg">
-    
     <!-- Navegação -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-space/90 backdrop-blur-sm border-b border-neon-blue/20">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-neon-blue neon-text tech-text">Miguel Luiz Manzoni</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about"
-                        class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">SOBRE</a>
-                    <a href="#ucs"
-                        class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">UNIDADES</a>
-                    <a href="#conclusion"
-                        class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONCLUSÃO</a>
-                    <a href="#contact"
-                        class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONTATO</a>
+                    <a href="#about" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">SOBRE</a>
+                    <a href="#ucs" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">UNIDADES</a>
+                    <a href="#conclusion" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONCLUSÃO</a>
+                    <a href="#contact" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONTATO</a>
                 </div>
                 <button class="md:hidden text-neon-blue" id="mobile-menu-button">
                     <i class="fas fa-bars text-2xl"></i>
@@ -198,8 +173,7 @@
     </nav>
 
     <!-- Menu Móvel -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-40 bg-dark-space/95 backdrop-blur-lg hidden flex-col items-center justify-center space-y-8">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark-space/95 backdrop-blur-lg hidden flex-col items-center justify-center space-y-8">
         <button class="absolute top-6 right-6 text-neon-blue text-2xl" id="close-menu">
             <i class="fas fa-times"></i>
         </button>
@@ -216,33 +190,30 @@
             <div class="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-neon-blue/10 blur-3xl"></div>
             <div class="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-electric-orange/10 blur-3xl"></div>
         </div>
-
+        
         <div class="container mx-auto px-6 z-10 text-center">
             <div class="inline-block mb-6">
                 <span class="text-sm md:text-base bg-neon-blue/20 text-neon-blue px-4 py-2 rounded-full hud-text">
                     TÉCNICO EM ADMINISTRAÇÃO • SENAC
                 </span>
             </div>
-
+            
             <h1 class="text-4xl md:text-6xl font-bold text-neon-blue neon-text mb-4 tech-text">GESTÃO INTELIGENTE</h1>
-            <h2 class="text-2xl md:text-4xl font-bold text-electric-orange orange-glow mb-8 tech-text">VISÃO DE FUTURO
-            </h2>
-
+            <h2 class="text-2xl md:text-4xl font-bold text-electric-orange orange-glow mb-8 tech-text">VISÃO DE FUTURO</h2>
+            
             <div class="max-w-3xl mx-auto">
                 <div class="neon-border rounded-lg p-6 mb-8 backdrop-blur-sm bg-dark-space/50">
                     <p class="text-lg md:text-xl text-cyan-100">
-                        Uma jornada administrativa através das 17 unidades curriculares que compõem meu aprendizado
-                        técnico. Cada bloco representa conhecimento estratégico e habilidades gerenciais desenvolvidas.
+                        Uma jornada administrativa através das 17 unidades curriculares que compõem meu aprendizado técnico. Cada bloco representa conhecimento estratégico e habilidades gerenciais desenvolvidas.
                     </p>
                 </div>
-
-                <a href="#ucs"
-                    class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
+                
+                <a href="#ucs" class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
                     EXPLORAR UNIDADES <i class="fas fa-arrow-down ml-2"></i>
                 </a>
             </div>
         </div>
-
+        
         <div class="absolute bottom-10 left-0 right-0 text-center">
             <a href="#about" class="text-neon-blue text-3xl animate-bounce inline-block">
                 <i class="fas fa-chevron-down"></i>
@@ -254,70 +225,58 @@
     <section id="about" class="py-20 relative circuit-bg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">PERFIL ADMINISTRATIVO
-                </h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">PERFIL ADMINISTRATIVO</h2>
                 <div class="w-24 h-1 bg-lime-green mx-auto mb-6"></div>
                 <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
                     Transformando desafios em oportunidades estratégicas
                 </p>
             </div>
-
+            
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/3 flex justify-center">
                     <div class="relative hud-element float">
                         <div class="w-64 h-64 bg-gradient-to-br from-electric-orange to-cyber-purple rounded-full p-1">
-                            <div
-                                class="w-full h-full bg-dark-space rounded-full flex items-center justify-center overflow-hidden">
-                                <!-- Replace with your image -->
-
-                                <div
-                                    class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center text-6xl text-gray-400">
-                                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEDVEiZJRZ4Vw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731069769163?e=1753920000&v=beta&t=Pk9mkDk-xbK7Yr4w1VBBpHFZosddqhaq6JLDD08yQDE"
-                                        alt="Foto do usuário" class="w-3/4 h-3/4 object-cover rounded-full" />
+                            <div class="w-full h-full bg-dark-space rounded-full flex items-center justify-center overflow-hidden">
+                                
+                                <!-- imagem -->
+                                <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center text-6xl text-gray-400">
+                                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEDVEiZJRZ4Vw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731069769163?e=1753920000&v=beta&t=Pk9mkDk-xbK7Yr4w1VBBpHFZosddqhaq6JLDD08yQDE" alt="Foto do usuário" class="w-3/4 h-3/4 object-cover rounded-full"/>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="absolute -bottom-3 -right-3 bg-lime-green text-dark-space px-4 py-1 rounded-full font-bold hud-text">
+                        <div class="absolute -bottom-3 -right-3 bg-lime-green text-dark-space px-4 py-1 rounded-full font-bold hud-text">
                             Ativo
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="lg:w-2/3">
-                    <h3 class="text-2xl md:text-3xl font-bold text-electric-orange orange-glow mb-6">Miguel Luiz Manzoni
-                    </h3>
-
+                    <h3 class="text-2xl md:text-3xl font-bold text-electric-orange orange-glow mb-6">Miguel Luiz Manzoni</h3>
+                    
                     <div class="mb-8">
                         <div class="flex items-center mb-4">
-                            <div
-                                class="w-8 h-8 bg-neon-blue text-dark-space rounded-full flex items-center justify-center mr-4">
+                            <div class="w-8 h-8 bg-neon-blue text-dark-space rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-id-card"></i>
                             </div>
                             <h4 class="text-xl text-neon-blue neon-text hud-text">BIOGRAFIA</h4>
                         </div>
                         <p class="text-cyan-100 pl-12">
-                            Estudante dedicado do curso técnico em Administração no SENAC, com paixão por estratégias de
-                            negócios, gestão de pessoas e inovação organizacional. Busco constantemente integrar
-                            tecnologia e métodos administrativos para criar soluções eficientes.
+                            Estudante dedicado do curso técnico em Administração no SENAC, com paixão por estratégias de negócios, gestão de pessoas e inovação organizacional. Busco constantemente integrar tecnologia e métodos administrativos para criar soluções eficientes.
                         </p>
                     </div>
-
+                    
                     <div class="mb-8">
                         <div class="flex items-center mb-4">
-                            <div
-                                class="w-8 h-8 bg-electric-orange text-white rounded-full flex items-center justify-center mr-4">
+                            <div class="w-8 h-8 bg-electric-orange text-white rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-bullseye"></i>
                             </div>
                             <h4 class="text-xl text-electric-orange orange-glow hud-text">OBJETIVO PROFISSIONAL</h4>
                         </div>
                         <p class="text-cyan-100 pl-12">
-                            Tornar-me um gestor completo, capaz de liderar equipes, otimizar processos e implementar
-                            estratégias inovadoras que impulsionem resultados organizacionais. Almejo atuar na
-                            intersecção entre administração tradicional e as novas tecnologias de gestão.
+                            Tornar-me um gestor completo, capaz de liderar equipes, otimizar processos e implementar estratégias inovadoras que impulsionem resultados organizacionais. Almejo atuar na intersecção entre administração tradicional e as novas tecnologias de gestão.
                         </p>
                     </div>
-
+                    
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-10">
                         <div class="bg-dark-space/50 border border-neon-blue/20 rounded-lg p-4 text-center card-hover">
                             <div class="text-neon-blue text-3xl mb-2">
@@ -347,21 +306,19 @@
     <section id="ucs" class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">UNIDADES CURRICULARES
-                </h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">UNIDADES CURRICULARES</h2>
                 <div class="w-24 h-1 bg-lime-green mx-auto mb-6"></div>
                 <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
                     As 17 unidades que compõem minha jornada de aprendizado em Administração
                 </p>
             </div>
-
+            
             <!-- UC Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- UC 1 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
+                        <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
                             01
                         </div>
                         <h3 class="text-xl font-bold text-lime-green green-glow">PLANEJAMENTO ESTRATÉGICO</h3>
@@ -381,20 +338,17 @@
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">TEORIAS</span>
-                        <span
-                            class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">FUNÇÕES</span>
+                        <span class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">FUNÇÕES</span>
                         <span class="text-xs bg-lime-green/20 text-lime-green px-3 py-1 rounded-full">HISTÓRIA</span>
-                        <span class="text-xs px-3 py-1 rounded-full"
-                            style="background-color: rgba(255, 255, 0, 0.2); color: #ffff00;">60H</span>
+                        <span class="text-xs px-3 py-1 rounded-full" style="background-color: rgba(255, 255, 0, 0.2); color: #ffff00;">60H</span>
                     </div>
                 </div>
-
+                
                 <!-- UC 2 -->
-
+                 
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
+                        <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
                             02
                         </div>
                         <h3 class="text-xl font-bold text-lime-green green-glow">DOCUMENTOS</h3>
@@ -402,8 +356,7 @@
                     <p class="text-cyan-100 mb-4">
                         - Tipos de documentos <br>
                         - Postura proficional, zelo na apresentação pessoal <br>
-                        - Redação empresarial, suas funções, caracteristicas, linguagem padrão, Pronomes de tratamentos,
-                        vocabulário e padronização <br>
+                        - Redação empresarial, suas funções, caracteristicas, linguagem padrão, Pronomes de tratamentos, vocabulário e padronização <br>
                         - Excel basico <br>
                         - Fala e escuta ativa <br>
                         - Técnicas de redação <br> <BR>
@@ -412,19 +365,16 @@
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">REDAÇÃO</span>
-                        <span
-                            class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">DOCUMENTOS</span>
+                        <span class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">DOCUMENTOS</span>
                         <span class="text-xs bg-lime-green/20 text-lime-green px-3 py-1 rounded-full">OFFICE</span>
-                        <span class="text-xs px-3 py-1 rounded-full"
-                            style="background-color: rgba(255, 255, 0, 0.2); color: #ffff00;">60H</span>
+                        <span class="text-xs px-3 py-1 rounded-full" style="background-color: rgba(255, 255, 0, 0.2); color: #ffff00;">60H</span>
                     </div>
                 </div>
-
+                
                 <!-- UC 17 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
+                        <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
                             17
                         </div>
                         <h3 class="text-xl font-bold text-lime-green green-glow">PROJETO INTEGRADOR</h3>
@@ -432,30 +382,26 @@
                     <p class="text-cyan-100 mb-4">
                         "Criação de uma empresa de treinamento para capacitar funcionários" <br> <br>
 
-                        - Foi criado uma análise SOWT para sabermos os pontos fortes e fracos da empresa.
-                        (30/04/2025)<br>
+                        - Foi criado uma análise SOWT para sabermos os pontos fortes e fracos da empresa. (30/04/2025)<br>
                         - Criação do plano de ação da empresa com modelo CANVAS (14/05/2025)
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">PI</span>
-                        <span class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">IDEIAS
-                            DE EMPRESA</span>
-                        <span class="text-xs bg-lime-green/20 text-lime-green px-3 py-1 rounded-full">AVANÇO NA
-                            CRIAÇÃO</span>
+                        <span class="text-xs bg-electric-orange/20 text-electric-orange px-3 py-1 rounded-full">IDEIAS DE EMPRESA</span>
+                        <span class="text-xs bg-lime-green/20 text-lime-green px-3 py-1 rounded-full">AVANÇO NA CRIAÇÃO</span>
                     </div>
                 </div>
 
                 <!-- Adicionar novas UCs -->
             </div>
-
+            
             <!-- Barra de progresso -->
             <div class="mt-16 bg-dark-space/50 border border-neon-blue/20 rounded-xl p-6">
                 <h3 class="text-xl font-bold text-neon-blue neon-text mb-6 hud-text">PROGRESSO DO CURSO</h3>
                 <div class="relative pt-1">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span
-                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lime-green bg-lime-green/20 hud-text">
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lime-green bg-lime-green/20 hud-text">
                                 CONCLUÍDO
                             </span>
                         </div>
@@ -466,9 +412,7 @@
                         </div>
                     </div>
                     <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-dark-space mt-2">
-                        <div style="width:5.9%"
-                            class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center skill-bar">
-                        </div>
+                        <div style="width:5.9%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center skill-bar"></div>
                     </div>
                     <div class="flex justify-between text-xs text-cyan-100">
                         <span>Início</span>
@@ -479,20 +423,16 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="text-center mt-16">
-                <a href="#conclusion"
-                    class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
+                <a href="#conclusion" class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
                     VER CONCLUSÃO <i class="fas fa-arrow-down ml-2"></i>
                 </a>
             </div>
         </div>
     </section>
-    <center>
-        <h1> CONCLUSÃO EM CONTRUÇÃO </h1>
-    </center>
-    <!-- Seção de Conclusão
-    
+            <center> <h1> CONCLUSÃO EM CONTRUÇÃO </h1> </center>
+    <!-- Conclusion Section 
     <section id="conclusion" class="py-20 relative circuit-bg">
         <div class="container mx-auto px-6 relative">
             <div class="text-center mb-16">
@@ -562,32 +502,30 @@
     <section id="contact" class="py-16 bg-dark-space border-t border-neon-blue/20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">CONEXÕES
-                    PROFISSIONAIS</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">CONEXÕES PROFISSIONAIS</h2>
                 <div class="w-24 h-1 bg-lime-green mx-auto mb-6"></div>
                 <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
                     Vamos construir oportunidades juntos
                 </p>
             </div>
-
+            
             <div class="flex flex-col md:flex-row gap-12">
-
+                
                 <div class="md:w-1/2">
                     <div class="bg-dark-space/50 border border-neon-blue/20 rounded-xl p-8 h-full">
                         <h3 class="text-2xl font-bold text-lime-green green-glow mb-6 hud-text">INFORMAÇÕES</h3>
-
+                        
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="text-neon-blue text-xl mr-4 mt-1">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-cyan-100 font-semibold hud-text">E-MAIL</h4>
-                                    <p class="text-cyan-100">miguelluizmanzoni3@gmail.com <br>
-                                        miguel.lmanzoni@senacsp.edu.br</p>
+                                    <h4 class="text-cyan-100 font-semibold hud-text">E-MAIL</h4> 
+                                    <p class="text-cyan-100">miguelluizmanzoni3@gmail.com <br> miguel.lmanzoni@senacsp.edu.br</p>
                                 </div>
                             </div>
-
+                            
                             <div class="flex items-start">
                                 <div class="text-neon-blue text-xl mr-4 mt-1">
                                     <i class="fas fa-map-marker-alt"></i>
@@ -597,7 +535,7 @@
                                     <p class="text-cyan-100">SENAC Jaú</p>
                                 </div>
                             </div>
-
+                            
                             <div class="flex items-start">
                                 <div class="text-neon-blue text-xl mr-4 mt-1">
                                     <i class="fas fa-graduation-cap"></i>
@@ -608,16 +546,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="mt-12">
                             <h4 class="text-cyan-100 font-semibold mb-4 hud-text">REDES PROFISSIONAIS</h4>
                             <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/miguel-luiz-manzoni-01a799278/" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 bg-neon-blue/10 border border-neon-blue/30 rounded-full flex items-center justify-center text-neon-blue hover:bg-neon-blue/20 transition duration-300">
+                                <a href="https://www.linkedin.com/in/miguel-luiz-manzoni-01a799278/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-neon-blue/10 border border-neon-blue/30 rounded-full flex items-center justify-center text-neon-blue hover:bg-neon-blue/20 transition duration-300">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="https://www.instagram.com/_manzonimiguel_/" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 bg-neon-blue/10 border border-neon-blue/30 rounded-full flex items-center justify-center text-neon-blue hover:bg-neon-blue/20 transition duration-300">
+                                <a href="https://www.instagram.com/_manzonimiguel_/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-neon-blue/10 border border-neon-blue/30 rounded-full flex items-center justify-center text-neon-blue hover:bg-neon-blue/20 transition duration-300">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
@@ -637,19 +573,17 @@
                         © 2025 Miguel • Técnico em Administração • SENAC
                     </p>
                 </div>
-
-                <div class="flex justify-center">
-                    <a href="https://www.senac.br" target="_blank" rel="noopener noreferrer"
-                        class="text-cyan-100/70 hover:text-neon-blue transition duration-300 text-3xl">
-                        <i class="fas fa-book"></i>
+                
+                <div class="flex space-x-6">
+                    <a href="https://www.sp.senac.br/senac-jau" target="_blank" rel="noopener noreferrer" class="text-cyan-100/70 hover:text-neon-blue transition duration-300">
+                        <i class="fas fa-user-graduate"></i>
                     </a>
                 </div>
-
             </div>
-
+            
             <div class="mt-8 text-center">
                 <p class="text-cyan-100/50 text-xs">
-                    Portfólio acadêmico desenvolvido como parte do curso técnico em Administração do SENAC. <br>
+                    Portfólio acadêmico desenvolvido como parte do curso técnico em Administração do SENAC. <br> 
                     Orientação: Ana Carolina Garcia, Mario Sergio Martinello Junior e Welington Renan Lima.
                 </p>
             </div>
@@ -666,22 +600,22 @@
                 });
             });
         });
-
+        
         // Alternar menu móvel
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeMenuButton = document.getElementById('close-menu');
-
+        
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
             mobileMenu.classList.add('flex');
         });
-
+        
         closeMenuButton.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('flex');
         });
-
+        
         // Adicione animação de pulsação a elementos com a classe .pulse
         const pulseElements = document.querySelectorAll('.pulse');
         pulseElements.forEach(el => {
@@ -689,5 +623,4 @@
         });
     </script>
 </body>
-
 </html>
