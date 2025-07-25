@@ -14,7 +14,7 @@
             --lime-green: #a5ff16;
             --cyber-purple: #bc13fe;
             --dark-space: #0a0a1a;
-            --neon-red: #ff0033,
+            --neon-red: #ff0033;
         }
         
         body {
@@ -131,6 +131,157 @@
             background-color: var(--lime-green);
             box-shadow: 0 0 10px var(--lime-green);
         }
+        
+        .explanation-card {
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .explanation-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .explanation-card.active .explanation-content {
+            max-height: 1000px;
+        }
+        
+        /* Estilos para o sistema de comentários */
+        .student-comment {
+            background: rgba(0, 245, 255, 0.1);
+            border-left: 4px solid var(--neon-blue);
+        }
+        
+        .teacher-comment {
+            background: rgba(255, 94, 0, 0.1);
+            border-left: 4px solid var(--electric-orange);
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .student-tag {
+            background: var(--neon-blue);
+            color: var(--dark-space);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .teacher-tag {
+            background: var(--electric-orange);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .comment-form {
+            background: rgba(10, 10, 26, 0.7);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .comment-input {
+            background: rgba(10, 10, 26, 0.5);
+            border: 1px solid var(--neon-blue);
+            color: #e0e0ff;
+            border-radius: 6px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .comment-input:focus {
+            outline: none;
+            border-color: var(--lime-green);
+            box-shadow: 0 0 8px var(--neon-blue);
+        }
+        
+        .comment-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-section {
+            margin-top: 20px;
+        }
+        
+        .comment-card {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .comment-date {
+            font-size: 0.8rem;
+            color: #a0a0ff;
+            font-style: italic;
+        }
+        
+        .delete-comment {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ff0033;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .delete-comment:hover {
+            opacity: 1;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .notification-success {
+            background-color: var(--lime-green);
+            color: var(--dark-space);
+        }
+        
+        .notification-error {
+            background-color: var(--neon-red);
+            color: white;
+        }
+        
+        .notification-info {
+            background-color: var(--neon-blue);
+            color: var(--dark-space);
+        }
     </style>
     <script>
         tailwind.config = {
@@ -142,6 +293,7 @@
                         'lime-green': '#a5ff16',
                         'cyber-purple': '#bc13fe',
                         'dark-space': '#0a0a1a',
+                        'neon-red': '#ff0033'
                     },
                     fontFamily: {
                         'orbitron': ['Orbitron', 'sans-serif'],
@@ -162,6 +314,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">SOBRE</a>
                     <a href="#ucs" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">UNIDADES</a>
+                    <a href="#explanations" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">EXPLANAÇÃO</a>
                     <a href="#conclusion" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONCLUSÃO</a>
                     <a href="#contact" class="text-neon-blue hover:text-lime-green transition duration-300 hud-text">CONTATO</a>
                 </div>
@@ -179,6 +332,7 @@
         </button>
         <a href="#about" class="text-2xl text-neon-blue neon-text hud-text">SOBRE</a>
         <a href="#ucs" class="text-2xl text-neon-blue neon-text hud-text">UNIDADES</a>
+        <a href="#explanations" class="text-2xl text-neon-blue neon-text hud-text">EXPLANAÇÃO</a>
         <a href="#conclusion" class="text-2xl text-neon-blue neon-text hud-text">CONCLUSÃO</a>
         <a href="#contact" class="text-2xl text-neon-blue neon-text hud-text">CONTATO</a>
     </div>
@@ -237,11 +391,7 @@
                     <div class="relative hud-element float">
                         <div class="w-64 h-64 bg-gradient-to-br from-electric-orange to-cyber-purple rounded-full p-1">
                             <div class="w-full h-full bg-dark-space rounded-full flex items-center justify-center overflow-hidden">
-                                
-                                <!-- imagem -->
-                                <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center text-6xl text-gray-400">
-                                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEDVEiZJRZ4Vw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731069769163?e=1753920000&v=beta&t=Pk9mkDk-xbK7Yr4w1VBBpHFZosddqhaq6JLDD08yQDE" alt="Foto do usuário" class="w-3/4 h-3/4 object-cover rounded-full"/>
-                                </div>
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEDVEiZJRZ4Vw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731069769163?e=1753920000&v=beta&t=Pk9mkDk-xbK7Yr4w1VBBpHFZosddqhaq6JLDD08yQDE" alt="Foto do usuário" class="w-3/4 h-3/4 object-cover rounded-full"/>
                             </div>
                         </div>
                         <div class="absolute -bottom-3 -right-3 bg-lime-green text-dark-space px-4 py-1 rounded-full font-bold hud-text">
@@ -337,7 +487,6 @@
                         - Elementos para compor um projeto. <br>
                         - Projeto integrador dias: 14/05 e 19/05. <br>
                         - Encerrado dia 20/05/2025
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">TEORIA</span>
@@ -348,13 +497,12 @@
                 </div>
                 
                 <!-- UC 2 -->
-                 
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
                             02
                         </div>
-                            <h3 class="text-xl font-bold text-lime-green green-glow"> DOCUMENTOS </h3>
+                        <h3 class="text-xl font-bold text-lime-green green-glow"> DOCUMENTOS </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
                         - Inicio dia 21/05/2025 <br>
@@ -367,7 +515,6 @@
                         - Matemática básica. <br>
                         - Projeto integrador dias: 16/06, 17/06 e 18/06. <br>
                         - Encerrado dia 23/06/2025
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">POSTURA</span>
@@ -377,8 +524,7 @@
                     </div>
                 </div>
 
-                 <!-- UC 3 -->
-                 
+                <!-- UC 3 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -387,7 +533,6 @@
                         <h3 class="text-xl font-bold text-lime-green green-glow"> PROJETOS </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Inicio dia 24/05/2025 <br>
                         - Analisar e identificar as etapas de um projeto. <br>
                         - Palestra com Flávia Montagnoli C. Martins (Assistente Social) e Ellen C. Fabri (psicóloga). <br>
@@ -402,7 +547,6 @@
                         - Divulgação do projeto <br>
                         - Projeto integrador dias: 23/07, 24/07 e 25/07
                         - Cursando
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">ANALISE</span>
@@ -413,7 +557,6 @@
                 </div>
 
                 <!-- UC 4 -->
-                 
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -423,9 +566,7 @@
 e integração de pessoas. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -436,7 +577,6 @@ e integração de pessoas. </h3>
                 </div>
 
                 <!-- UC 5 -->
-                 
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -446,9 +586,7 @@ e integração de pessoas. </h3>
 pessoas, retenção, avaliação de desempenho e elaboração de planos de cargos e salários.  </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -458,8 +596,7 @@ pessoas, retenção, avaliação de desempenho e elaboração de planos de cargo
                     </div>
                 </div>
 
-                 <!-- UC 6 -->
-                 
+                <!-- UC 6 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -469,9 +606,7 @@ pessoas, retenção, avaliação de desempenho e elaboração de planos de cargo
 qualidade de vida, saúde e segurança nos ambientes de trabalho.  </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -481,8 +616,7 @@ qualidade de vida, saúde e segurança nos ambientes de trabalho.  </h3>
                     </div>
                 </div>
 
-                 <!-- UC 7 -->
-                 
+                <!-- UC 7 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -492,9 +626,7 @@ qualidade de vida, saúde e segurança nos ambientes de trabalho.  </h3>
 demissão de colaboradores.  </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -504,8 +636,7 @@ demissão de colaboradores.  </h3>
                     </div>
                 </div>
 
-                 <!-- UC 8 -->
-                 
+                <!-- UC 8 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -514,9 +645,7 @@ demissão de colaboradores.  </h3>
                         <h3 class="text-xl font-bold text-lime-green green-glow"> Auxiliar na elaboração da folha de pagamento. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -526,8 +655,7 @@ demissão de colaboradores.  </h3>
                     </div>
                 </div>
 
-                 <!-- UC 9 -->
-                 
+                <!-- UC 9 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -537,9 +665,7 @@ demissão de colaboradores.  </h3>
 gestão de materiais e patrimônio em organizações. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -549,8 +675,7 @@ gestão de materiais e patrimônio em organizações. </h3>
                     </div>
                 </div>
 
-                 <!-- UC 10 -->
-                 
+                <!-- UC 10 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -560,9 +685,7 @@ gestão de materiais e patrimônio em organizações. </h3>
 logísticas em organizações.  </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -572,8 +695,7 @@ logísticas em organizações.  </h3>
                     </div>
                 </div>
 
-                 <!-- UC 11 -->
-                 
+                <!-- UC 11 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -583,9 +705,7 @@ logísticas em organizações.  </h3>
 financeiros em organizações. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -595,8 +715,7 @@ financeiros em organizações. </h3>
                     </div>
                 </div>
 
-                 <!-- UC 12 -->
-                 
+                <!-- UC 12 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -606,9 +725,7 @@ financeiros em organizações. </h3>
 nas organizações.  </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -618,8 +735,7 @@ nas organizações.  </h3>
                     </div>
                 </div>
 
-                 <!-- UC 13 -->
-                 
+                <!-- UC 13 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -629,9 +745,7 @@ nas organizações.  </h3>
 composto de marketing das organizações. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -641,8 +755,7 @@ composto de marketing das organizações. </h3>
                     </div>
                 </div>
 
-                 <!-- UC 14 -->
-                 
+                <!-- UC 14 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -652,9 +765,7 @@ composto de marketing das organizações. </h3>
 comerciais. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -664,8 +775,7 @@ comerciais. </h3>
                     </div>
                 </div>
 
-                 <!-- UC 15 -->
-                 
+                <!-- UC 15 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -674,9 +784,7 @@ comerciais. </h3>
                         <h3 class="text-xl font-bold text-lime-green green-glow"> Apoiar a operacionalização de ações de comércio exterior </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -686,8 +794,7 @@ comerciais. </h3>
                     </div>
                 </div>
 
-                 <!-- UC 16 -->
-                 
+                <!-- UC 16 -->
                 <div class="bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 card-hover hud-element">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
@@ -697,9 +804,7 @@ comerciais. </h3>
 processos organizacionais. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
-                        
                         - Aguardando <br>
-
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">teste</span>
@@ -719,7 +824,7 @@ processos organizacionais. </h3>
                     </div>
                     <p class="text-cyan-100 mb-4">
                         "Criação de uma empresa de treinamento para treinar e capacitar funcionários" no dia (30/04/2025)<br>
-                        "Criação de um novo Projeto Integrador com nome de "MSL Brindes" no dia 23/07/2025 <br> <br>
+                        "Criação de um novo Projeto Integrador com nome de "MSL Brindes" no dia 23/07/2025 <br>
 
                         - Foi criado uma análise SWOT para sabermos os pontos fortes e fracos da empresa. (30/04/2025)<br>
                         - Criação do plano de ação da empresa com modelo CANVAS (14/05/2025) <br>
@@ -727,8 +832,7 @@ processos organizacionais. </h3>
                         
                         - Novo Projeto Integrador (23/06/2025) <br>
                         - Criação da análise SWOT, CANVAS e 5W2H (24/07/2025 e 25/07/2025) <br>
-                        - Criação de uma nova apresentação para o trabalho e apresentação (25/07/2025) <br>
-                        - Aguardando
+                        - Criação de uma nova apresentação para o trabalho e apresentação (25/07/2025)
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full">PROJETO INTEGRADOR</span>
@@ -768,14 +872,165 @@ processos organizacionais. </h3>
             </div>
             
             <div class="text-center mt-16">
+                <a href="#explanations" class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
+                    ESCREVER EXPLANAÇÃO <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nova Seção: Explanação das Unidades -->
+    <section id="explanations" class="py-20 relative circuit-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-neon-blue neon-text mb-4 tech-text">EXPLANAÇÃO DAS UNIDADES</h2>
+                <div class="w-24 h-1 bg-lime-green mx-auto mb-6"></div>
+                <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
+                    Espaço para detalhar experiência e aprendizado em cada unidade curricular
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- UC 1 -->
+                <div class="explanation-card bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 mb-6 card-hover">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation(1)">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
+                                01
+                            </div>
+                            <h3 class="text-lg font-bold text-lime-green green-glow">PLANEJAMENTO ESTRATÉGICOS</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-neon-blue transition-transform duration-300" id="icon-1"></i>
+                    </div>
+                    <div class="explanation-content mt-4" id="content-1">
+                        <!-- Formulário para comentário do aluno -->
+                        <div class="comment-form">
+                            <h4 class="text-lime-green font-bold mb-3 hud-text">MINHA EXPLANAÇÃO (ALUNO)</h4>
+                            <textarea class="comment-input comment-textarea" id="student-text-1" placeholder="Escreva aqui sua explanação sobre esta unidade..."></textarea>
+                            <div class="flex justify-end">
+                                <button onclick="saveStudentComment(1)" class="bg-gradient-to-r from-neon-blue to-cyber-purple text-white font-bold px-4 py-2 rounded-lg mr-3 hud-text">
+                                    <i class="fas fa-save mr-2"></i>SALVAR MINHA EXPLANAÇÃO
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Comentário salvo do aluno -->
+                        <div class="comment-section" id="saved-student-1">
+                            <!-- Comentário do aluno será exibido aqui -->
+                        </div>
+                        
+                        <!-- Seção para comentários de professores -->
+                        <div class="mt-8">
+                            <h4 class="text-electric-orange orange-glow font-bold mb-3 hud-text">COMENTÁRIOS DE PROFESSORES</h4>
+                            
+                            <!-- Formulário para adicionar comentário de professor -->
+                            <div class="comment-form">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="text-cyan-100 block mb-1">Nome do Professor:</label>
+                                        <input type="text" class="comment-input" id="teacher-name-1" placeholder="Nome do professor">
+                                    </div>
+                                    <div>
+                                        <label class="text-cyan-100 block mb-1">Data:</label>
+                                        <input type="date" class="comment-input" id="teacher-date-1" value="<?php echo date('Y-m-d'); ?>">
+                                    </div>
+                                </div>
+                                <textarea class="comment-input comment-textarea" id="teacher-text-1" placeholder="Comentário do professor..."></textarea>
+                                <div class="flex justify-end">
+                                    <button onclick="addTeacherComment(1)" class="bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-4 py-2 rounded-lg hud-text">
+                                        <i class="fas fa-plus mr-2"></i>ADICIONAR COMENTÁRIO
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lista de comentários de professores -->
+                            <div id="teacher-comments-1" class="mt-4">
+                                <!-- Comentários de professores serão exibidos aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UC 2 -->
+                <div class="explanation-card bg-dark-space/80 border border-neon-blue/20 rounded-xl p-6 mb-6 card-hover">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleExplanation(2)">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-br from-neon-blue to-electric-orange rounded-lg flex items-center justify-center text-dark-space font-bold mr-4 hud-text">
+                                02
+                            </div>
+                            <h3 class="text-lg font-bold text-lime-green green-glow">DOCUMENTOS</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-neon-blue transition-transform duration-300" id="icon-2"></i>
+                    </div>
+                    <div class="explanation-content mt-4" id="content-2">
+                        <!-- Formulário para comentário do aluno -->
+                        <div class="comment-form">
+                            <h4 class="text-lime-green font-bold mb-3 hud-text">MINHA EXPLANAÇÃO (ALUNO)</h4>
+                            <textarea class="comment-input comment-textarea" id="student-text-2" placeholder="Escreva aqui sua explanação sobre esta unidade..."></textarea>
+                            <div class="flex justify-end">
+                                <button onclick="saveStudentComment(2)" class="bg-gradient-to-r from-neon-blue to-cyber-purple text-white font-bold px-4 py-2 rounded-lg mr-3 hud-text">
+                                    <i class="fas fa-save mr-2"></i>SALVAR MINHA EXPLANAÇÃO
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Comentário salvo do aluno -->
+                        <div class="comment-section" id="saved-student-2">
+                            <!-- Comentário do aluno será exibido aqui -->
+                        </div>
+                        
+                        <!-- Seção para comentários de professores -->
+                        <div class="mt-8">
+                            <h4 class="text-electric-orange orange-glow font-bold mb-3 hud-text">COMENTÁRIOS DE PROFESSORES</h4>
+                            
+                            <!-- Formulário para adicionar comentário de professor -->
+                            <div class="comment-form">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="text-cyan-100 block mb-1">Nome do Professor:</label>
+                                        <input type="text" class="comment-input" id="teacher-name-2" placeholder="Nome do professor">
+                                    </div>
+                                    <div>
+                                        <label class="text-cyan-100 block mb-1">Data:</label>
+                                        <input type="date" class="comment-input" id="teacher-date-2" value="<?php echo date('Y-m-d'); ?>">
+                                    </div>
+                                </div>
+                                <textarea class="comment-input comment-textarea" id="teacher-text-2" placeholder="Comentário do professor..."></textarea>
+                                <div class="flex justify-end">
+                                    <button onclick="addTeacherComment(2)" class="bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-4 py-2 rounded-lg hud-text">
+                                        <i class="fas fa-plus mr-2"></i>ADICIONAR COMENTÁRIO
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lista de comentários de professores -->
+                            <div id="teacher-comments-2" class="mt-4">
+                                <!-- Comentários de professores serão exibidos aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botão para mostrar todas as UC's -->
+                <div class="text-center mt-8">
+                    <button onclick="showAllExplanations()" class="bg-dark-space border border-neon-blue text-neon-blue font-bold px-6 py-3 rounded-lg mr-3 hud-text">
+                        <i class="fas fa-expand mr-2"></i>MOSTRAR TODAS AS UNIDADES
+                    </button>
+                    <button onclick="hideAllExplanations()" class="bg-dark-space border border-neon-blue text-neon-blue font-bold px-6 py-3 rounded-lg hud-text">
+                        <i class="fas fa-compress mr-2"></i>OCULTAR TODAS
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
                 <a href="#conclusion" class="inline-block bg-gradient-to-r from-electric-orange to-cyber-purple text-white font-bold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-electric-orange/30 transition duration-300 hud-text">
                     VER CONCLUSÃO <i class="fas fa-arrow-down ml-2"></i>
                 </a>
             </div>
         </div>
     </section>
-            <center> <h1> CONCLUSÃO EM CONTRUÇÃO </h1> </center>
-    <!-- Conclusion Section 
+
+    <!-- Conclusion Section --> <!--
     <section id="conclusion" class="py-20 relative circuit-bg">
         <div class="container mx-auto px-6 relative">
             <div class="text-center mb-16">
@@ -853,7 +1108,6 @@ processos organizacionais. </h3>
             </div>
             
             <div class="flex flex-col md:flex-row gap-12">
-                
                 <div class="md:w-1/2">
                     <div class="bg-dark-space/50 border border-neon-blue/20 rounded-xl p-8 h-full">
                         <h3 class="text-2xl font-bold text-lime-green green-glow mb-6 hud-text">INFORMAÇÕES</h3>
@@ -963,6 +1217,237 @@ processos organizacionais. </h3>
         const pulseElements = document.querySelectorAll('.pulse');
         pulseElements.forEach(el => {
             el.style.animationDelay = `${Math.random() * 2}s`;
+        });
+        
+        // Funções para a nova seção de explanação
+        function toggleExplanation(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            const card = content.parentElement;
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                card.classList.remove('active');
+            } else {
+                content.style.maxHeight = '1000px';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                card.classList.add('active');
+                
+                // Carregar comentários salvos
+                loadComments(id);
+            }
+        }
+        
+        function saveStudentComment(id) {
+            const textarea = document.getElementById(`student-text-${id}`);
+            const text = textarea.value.trim();
+            
+            if (text) {
+                localStorage.setItem(`uc-student-${id}`, text);
+                renderStudentComment(id, text);
+                
+                // Feedback visual
+                showNotification('Explanação do aluno salva com sucesso!', 'success');
+            } else {
+                showNotification('Por favor, escreva sua explanação antes de salvar.', 'error');
+            }
+        }
+        
+        function addTeacherComment(id) {
+            const name = document.getElementById(`teacher-name-${id}`).value.trim();
+            const date = document.getElementById(`teacher-date-${id}`).value;
+            const text = document.getElementById(`teacher-text-${id}`).value.trim();
+            
+            if (!name || !text) {
+                showNotification('Por favor, preencha o nome do professor e o comentário.', 'error');
+                return;
+            }
+            
+            // Criar objeto de comentário
+            const comment = {
+                name: name,
+                date: date,
+                text: text
+            };
+            
+            // Salvar no localStorage
+            saveTeacherComment(id, comment);
+            
+            // Renderizar na página
+            renderTeacherComment(id, comment);
+            
+            // Limpar formulário
+            document.getElementById(`teacher-name-${id}`).value = '';
+            document.getElementById(`teacher-text-${id}`).value = '';
+            
+            showNotification('Comentário do professor adicionado com sucesso!', 'success');
+        }
+        
+        function saveTeacherComment(id, comment) {
+            let comments = JSON.parse(localStorage.getItem(`uc-teachers-${id}`) || '[]');
+            comments.push(comment);
+            localStorage.setItem(`uc-teachers-${id}`, JSON.stringify(comments));
+        }
+        
+        function renderStudentComment(id, text) {
+            const container = document.getElementById(`saved-student-${id}`);
+            container.innerHTML = `
+                <div class="student-comment comment-card">
+                    <div class="comment-header">
+                        <div>
+                            <span class="student-tag">ALUNO</span>
+                            <span class="comment-author ml-2">Miguel Luiz Manzoni</span>
+                        </div>
+                        <span class="comment-date">${new Date().toLocaleDateString('pt-BR')}</span>
+                    </div>
+                    <p class="text-cyan-100">${text}</p>
+                    <div class="delete-comment" onclick="deleteStudentComment(${id})">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderTeacherComment(id, comment) {
+            const container = document.getElementById(`teacher-comments-${id}`);
+            const commentElement = document.createElement('div');
+            commentElement.className = 'teacher-comment comment-card mb-4';
+            commentElement.innerHTML = `
+                <div class="comment-header">
+                    <div>
+                        <span class="teacher-tag">PROFESSOR</span>
+                        <span class="comment-author ml-2">${comment.name}</span>
+                    </div>
+                    <span class="comment-date">${formatDate(comment.date)}</span>
+                </div>
+                <p class="text-cyan-100">${comment.text}</p>
+                <div class="delete-comment" onclick="deleteTeacherComment(${id}, ${container.children.length})">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            `;
+            container.appendChild(commentElement);
+        }
+        
+        function loadComments(id) {
+            // Carregar comentário do aluno
+            const studentText = localStorage.getItem(`uc-student-${id}`);
+            if (studentText) {
+                document.getElementById(`student-text-${id}`).value = studentText;
+                renderStudentComment(id, studentText);
+            }
+            
+            // Carregar comentários de professores
+            const teacherComments = JSON.parse(localStorage.getItem(`uc-teachers-${id}`) || '[]');
+            const container = document.getElementById(`teacher-comments-${id}`);
+            container.innerHTML = '';
+            
+            teacherComments.forEach((comment, index) => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'teacher-comment comment-card mb-4';
+                commentElement.innerHTML = `
+                    <div class="comment-header">
+                        <div>
+                            <span class="teacher-tag">PROFESSOR</span>
+                            <span class="comment-author ml-2">${comment.name}</span>
+                        </div>
+                        <span class="comment-date">${formatDate(comment.date)}</span>
+                    </div>
+                    <p class="text-cyan-100">${comment.text}</p>
+                    <div class="delete-comment" onclick="deleteTeacherComment(${id}, ${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                `;
+                container.appendChild(commentElement);
+            });
+        }
+        
+        function deleteStudentComment(id) {
+            if (confirm('Tem certeza que deseja excluir sua explanação?')) {
+                localStorage.removeItem(`uc-student-${id}`);
+                document.getElementById(`saved-student-${id}`).innerHTML = '';
+                document.getElementById(`student-text-${id}`).value = '';
+                showNotification('Explanação excluída!', 'info');
+            }
+        }
+        
+        function deleteTeacherComment(id, index) {
+            if (confirm('Tem certeza que deseja excluir este comentário?')) {
+                let comments = JSON.parse(localStorage.getItem(`uc-teachers-${id}`) || '[]');
+                comments.splice(index, 1);
+                localStorage.setItem(`uc-teachers-${id}`, JSON.stringify(comments));
+                
+                // Recarregar comentários
+                loadComments(id);
+                showNotification('Comentário excluído!', 'info');
+            }
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR');
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} mr-2"></i>
+                ${message}
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+        
+        function showAllExplanations() {
+            for (let i = 1; i <= 17; i++) {
+                const content = document.getElementById(`content-${i}`);
+                const icon = document.getElementById(`icon-${i}`);
+                const card = content ? content.parentElement : null;
+                
+                if (content) {
+                    content.style.maxHeight = '1000px';
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                    if (card) card.classList.add('active');
+                    
+                    // Carregar comentários
+                    loadComments(i);
+                }
+            }
+        }
+        
+        function hideAllExplanations() {
+            for (let i = 1; i <= 17; i++) {
+                const content = document.getElementById(`content-${i}`);
+                const icon = document.getElementById(`icon-${i}`);
+                const card = content ? content.parentElement : null;
+                
+                if (content) {
+                    content.style.maxHeight = '0';
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                    if (card) card.classList.remove('active');
+                }
+            }
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carregar comentários para as UCs visíveis
+            for (let i = 1; i <= 2; i++) {
+                loadComments(i);
+            }
         });
     </script>
 </body>
